@@ -1,0 +1,15 @@
+/* styling for the authentication page */
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.authForm img {
+  width: 100px;
+  height: 100px;
+}

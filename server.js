@@ -12,6 +12,11 @@ const app = express();
 // set the template engine to EJS, which generates HTML with embedded JavaScript
 app.set("view engine", "ejs");
 
+// load assets
+app.use("/css", express.static("assets/css"));
+app.use("/img", express.static("assets/img"));
+app.use("/js", express.static("assets/js"));
+
 // to keep this file manageable, we will move the routes to a separate file
 //  the exported router object is an example of middleware
 app.use("/", require("./server/routes/router"));

@@ -7,10 +7,14 @@ const route = express.Router();
 route.get("/", (req, res) => {
   // the req parameter references the HTTP request object, which has a number
   //  of properties
-  console.log("path:" + req.path);
+  console.log("path requested:" + req.path);
 
   // the res parameter references the HTTP response object
   res.render("index");
+});
+
+route.get("/createEntry", (req, res) => {
+  res.render("createEntry");
 });
 
 module.exports = route;

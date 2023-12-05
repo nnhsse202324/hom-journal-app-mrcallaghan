@@ -13,7 +13,15 @@
   <h1>Habits of Mind Journal Entry</h1>
   <div>
     <label>Date <input type="date" class="date" /></label>
-    <label>Habit of Mind <input type="text" class="HoM" /></label>
+    <fieldset>
+      <legend>Habit of Mind:</legend>
+      <% for(let habit of habits) { %>
+      <label>
+        <input type="radio" class="habits" name="habits" value="<%= habit %>" />
+        <%= habit %>
+      </label>
+      <% } %>
+    </fieldset>
     <label>
       Journal Entry <textarea class="content">my journal entry</textarea>
     </label>
@@ -21,7 +29,7 @@
   </div>
 </main>
 <!-- /Main Site-->
-<script src="/js/index.js"></script>
+<script src="/js/createEntry.js"></script>
 <!-- include footer-->
 <%- include('include/_footer') %>
 <!-- /include footer-->

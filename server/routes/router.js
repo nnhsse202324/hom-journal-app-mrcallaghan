@@ -23,7 +23,7 @@ route.get("/createEntry", (req, res) => {
 route.post("/createEntry", async (req, res) => {
   const entry = req.body;
   console.log(entry);
-  res.status(201).end();
+  res.status(201).end(); //
 });
 
 module.exports = route;

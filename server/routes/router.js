@@ -1,5 +1,6 @@
 const express = require("express");
 const route = express.Router();
+const Entry = require("../model/entry");
 
 // easy way to assign static data (e.g., array of strings) to a variable
 const habitsOfMind = require("../model/habitsOfMind.json");
@@ -21,8 +22,13 @@ route.get("/createEntry", (req, res) => {
 });
 
 route.post("/createEntry", async (req, res) => {
-  const entry = req.body;
-  console.log(entry);
+  const entry = new Entry({
+    date: req.body.date,
+    email: "gschmit@naperville203.org",
+    habit: req.body.habit,
+    content: req.body.content,
+  });
+  await entry.save();
   res.status(201).end();
 });
 

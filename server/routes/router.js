@@ -17,7 +17,13 @@ route.get("/", (req, res) => {
 });
 
 route.get("/createEntry", (req, res) => {
-  res.render("createEntry", { habits: habitsOfMind});
+  res.render("createEntry", { habits: habitsOfMind });
+});
+
+route.post("/createEntry", async (req, res) => {
+  const entry = req.body;
+  console.log(entry);
+  res.status(201).end();
 });
 
 module.exports = route;

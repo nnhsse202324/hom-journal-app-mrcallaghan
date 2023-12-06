@@ -2,18 +2,19 @@
  * contains client-side JavaScript function
  *  (primarily event handlers to fetch data from the Node server)
  */
+
 const submitButton = document.querySelector("input.submit");
-submitButton.addEventListener("click", asynch () => {
+submitButton.addEventListener("click", async () => {
   // get the values entered by the user
   const date = document.querySelector("input.date").value;
+
   // a more sophisticated select that selects all input elements of class
   //  habits that are checked
   const habitOfMindButtons = document.querySelectorAll("input.habits:checked");
   const habitOfMind =
     habitOfMindButtons.length > 0 ? habitOfMindButtons[0].value : null;
-  const content = document.querySelector("textarea.content").value;
-  console.log(date + "; " + habitOfMind + "; " + content);
 
+  const content = document.querySelector("textarea.content").value;
   const entry = { date, habit: habitOfMind, content };
 
   const response = await fetch("/createEntry", {
@@ -24,6 +25,9 @@ submitButton.addEventListener("click", asynch () => {
     body: JSON.stringify(entry),
   });
 
-  // for now, redirect to the home page
-  window.location = "/";
+  if (response.ok) {
+    window.location = "/";
+  } else {
+    console.log("error creating entry");
+  }
 });

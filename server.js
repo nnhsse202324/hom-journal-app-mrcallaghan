@@ -9,6 +9,9 @@ const express = require("express");
 // invoke the express function to create an Express application
 const app = express();
 
+// add middleware to handle JSON in HTTP request bodies (used with POST commands)
+app.use(express.json());
+
 // set the template engine to EJS, which generates HTML with embedded JavaScript
 app.set("view engine", "ejs");
 

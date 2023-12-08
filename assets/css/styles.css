@@ -13,3 +13,21 @@
   width: 100px;
   height: 100px;
 }
+
+.indexTopBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.indexTopBar img {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+}
+
+.indexTopBar h1 {
+  margin-right: auto;
+}

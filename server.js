@@ -9,6 +9,14 @@ const express = require("express");
 // invoke the express function to create an Express application
 const app = express();
 
+// load environment variables from the .env file into process.env
+const dotenv = require("dotenv");
+dotenv.config({ path: ".env" });
+
+// connect to the database
+const connectDB = require("./server/database/connection");
+connectDB();
+
 // add middleware to handle JSON in HTTP request bodies (used with POST commands)
 app.use(express.json());
 
